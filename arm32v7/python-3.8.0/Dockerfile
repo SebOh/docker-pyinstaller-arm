@@ -9,3 +9,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install pyinstaller==3.5
+
+COPY ./scripts/entrypoint.sh /entrypoint.sh
+
+VOLUME /app/
+WORKDIR /app/
+
+ENTRYPOINT ["/entrypoint.sh"]
